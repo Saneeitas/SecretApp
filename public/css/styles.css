@@ -1,0 +1,38 @@
+
+body {
+  background-color: #E8ECEF;
+}
+
+.centered {
+    padding-top: 200px;
+    text-align: center;
+}
+
+.secret-text {
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+  background-color: #000;
+}
+
+.logins{
+  color: #fff;
+  background-color: #000;
+}
+
+.logins:hover{
+  color: #fff;
+}
+
+.register{
+  color:#000;
+  background-color:#fff;
+}
+
+.form{
+   background-color:#fff;
+}
+
+.social{
+  margin-bottom: 5px;
+}
