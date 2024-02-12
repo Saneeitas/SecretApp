@@ -33,7 +33,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 mongoose.set("strictQuery", true);
-mongoose.connect("mongodb://localhost:27017/userDB");
+mongoose.connect(process.env.CLUSTER_URL);
 
 const userSchema = new mongoose.Schema({
   username: String,
@@ -176,15 +176,15 @@ app.get("/auth", (req, res) => {
 });
 
 app.get("/secrets", (req, res) => {
-  User.find({ "secret": { $ne: null } }, (err, foundUsers) => {
+  User.find({ secret: { $ne: null } }, (err, foundUsers) => {
     if (err) {
       console.log(err);
     } else {
       if (foundUsers) {
-        res.render("secrets", {usersWithSecrets: foundUsers})
+        res.render("secrets", { usersWithSecrets: foundUsers });
       }
     }
-  })
+  });
 });
 
 app.get("/logout", (req, res) => {
@@ -224,7 +224,6 @@ app.post("/register", (req, res) => {
       } else {
         passport.authenticate("local")(req, res, () => {
           res.redirect("/secrets");
-          
         });
       }
     }
