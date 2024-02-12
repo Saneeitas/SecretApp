@@ -169,7 +169,7 @@ app.get("/submit", (req, res) => {
 
 app.get("/auth", (req, res) => {
   if (req.isAuthenticated()) {
-    res.send("Auth");
+    res.send(req.user);
   } else {
     res.send("Not Auth");
   }
